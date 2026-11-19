@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aprendiendo</title>
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<!-- LECCIÓN 1 -->
+<section id="leccion1" style="background-color:#cd9efa; color:rgb(12, 12, 12);">
+    <h3>Nueva palabra</h3>
+    <h1>¿Cuál de estos es "Gato"?</h1>
+
+    <div class="container">
+        <div class="card" data-respuesta="Mixtu" data-audio="audio/Gato.ogg" onclick="seleccionarTarjeta(this)">
+            <img src="imagenes/images (1).jpg" alt="Mixtu">
+            <h3>Mixtu</h3>
+        </div>
+        <div class="card" data-respuesta="Juiji" data-audio="audio/Burro.ogg" onclick="seleccionarTarjeta(this)">
+            <img src="imagenes/images.jpg" alt="Juiji">
+            <h3>Juiji</h3>
+        </div>
+        <div class="card" data-respuesta="Badu" data-audio="audio/Pato.ogg" onclick="seleccionarTarjeta(this)">
+            <img src="imagenes/images (2).jpg" alt="Badu">
+            <h3>Badu</h3>
+        </div>
+    </div>
+
+    <div class="botones">
+        <button class="comprobar" onclick="comprobarRespuesta('leccion1', 'Mixtu', 'leccion2')">COMPROBAR</button>
+        <button class="saltar" onclick="cambiarLeccion('leccion1', 'leccion2')">SALTAR</button>
+    </div>
+    <p id="resultado-leccion1" class="resultado"></p>
+</section>
+
+
+<!-- LECCIÓN 2 -->
+<section id="leccion2" style="background-color:#cd9efa; color:#333; display:none;">
+    <h3>Nueva palabra</h3>
+    <h1>¿Cuál de estos es "Burro"?</h1>
+
+    <div class="container">
+        <div class="card" data-respuesta="Juiji" data-audio="audio/Burro.ogg" onclick="seleccionarTarjeta(this)">
+            <img src="imagenes/images.jpg" alt="Juiji">
+            <h3>Juiji</h3>
+        </div>
+        <div class="card" data-respuesta="Mixtu" data-audio="audio/Gato.ogg" onclick="seleccionarTarjeta(this)">
+            <img src="imagenes/images (1).jpg" alt="Mixtu">
+            <h3>Mixtu</h3>
+        </div>
+        <div class="card" data-respuesta="Badu" data-audio="audio/Pato.ogg" onclick="seleccionarTarjeta(this)">
+            <img src="imagenes/images (2).jpg" alt="Badu">
+            <h3>Badu</h3>
+        </div>
+    </div>
+
+    <div class="botones">
+        <button class="comprobar" onclick="comprobarRespuesta('leccion2', 'Juiji', 'leccion3')">COMPROBAR</button>
+        <button class="saltar" onclick="cambiarLeccion('leccion2', 'leccion3')">SALTAR</button>
+    </div>
+    <p id="resultado-leccion2" class="resultado"></p>
+</section>
+
+
+<!-- LECCIÓN 3 -->
+<section id="leccion3" style="background-color:#cd9efa; color:#333; display:none;">
+    <h3>Nueva palabra</h3>
+    <h1>¿Cuál de estos es "Pato"?</h1>
+
+    <div class="container">
+        <div class="card" data-respuesta="Mixtu" data-audio="audio/Gato.ogg" onclick="seleccionarTarjeta(this)">
+            <img src="imagenes/images (1).jpg" alt="Mixtu">
+            <h3>Mixtu</h3>
+        </div>
+        <div class="card" data-respuesta="Badu" data-audio="audio/Pato.ogg" onclick="seleccionarTarjeta(this)">
+            <img src="imagenes/images (2).jpg" alt="Badu">
+            <h3>Badu</h3>
+        </div>
+        <div class="card" data-respuesta="Juiji" data-audio="audio/Burro.ogg" onclick="seleccionarTarjeta(this)">
+            <img src="imagenes/images.jpg" alt="Juiji">
+            <h3>Juiji</h3>
+        </div>
+    </div>
+
+    <div class="botones">
+        <button class="comprobar" onclick="comprobarRespuesta('leccion3', 'Badu', 'leccion4')">COMPROBAR</button>
+        <button class="saltar" onclick="cambiarLeccion('leccion3', 'leccion4')">SALTAR</button>
+    </div>
+    <p id="resultado-leccion3" class="resultado"></p>
+</section>
+
+
+<!-- LECCIÓN 4 -->
+<section id="leccion4" style="background-color:#cd9efa; color:#333; display:none;">
+    <h3>Nueva palabra</h3>
+    <h1>El ____ toma leche.</h1>
+
+    <div class="container">
+        <div class="card" data-respuesta="Mixtu" data-audio="audio/Gato.ogg" onclick="seleccionarTarjeta(this)">
+            <img src="imagenes/images (1).jpg" alt="Mixtu">
+            <h3>Mixtu</h3>
+        </div>
+        <div class="card" data-respuesta="Juiji" data-audio="audio/Gato.ogg" onclick="seleccionarTarjeta(this)">
+            <img src="imagenes/images.jpg" alt="Juiji">
+            <h3>Juiji</h3>
+        </div>
+        <div class="card" data-respuesta="Badu" data-audio="audio/Pato.ogg" onclick="seleccionarTarjeta(this)">
+            <img src="imagenes/images (2).jpg" alt="Badu">
+            <h3>Badu</h3>
+        </div>
+    </div>
+
+    <div class="botones">
+        <!-- Avanza a 'leccion5' -->
+        <button class="comprobar" onclick="comprobarRespuesta('leccion4', 'Mixtu', 'leccion5')">COMPROBAR</button>
+        <button class="saltar" onclick="cambiarLeccion('leccion4', 'leccion5')">SALTAR</button>
+    </div>
+    <p id="resultado-leccion4" class="resultado"></p>
+</section>
+
+
+<!-- LECCIÓN 5 (Nueva lección corregida) -->
+<section id="leccion5" style="background-color:#cd9efa; color:#333; display:none;">
+    <h3>Nueva palabra</h3>
+    <h1>El ____ pone huevos.</h1>
+
+    <div class="container">
+        <div class="card" data-respuesta="Doro" data-audio="audio/Toro.ogg" onclick="seleccionarTarjeta(this)">
+            <img src="imagenes/Toro..png" alt="Doro">
+            <h3>Doro</h3>
+        </div>
+        <div class="card" data-respuesta="Foyo" data-audio="audio/perro.ogg" onclick="seleccionarTarjeta(this)">
+            <img src="imagenes/perro.jpg" alt="Foyo">
+            <h3>Foyo</h3>
+        </div>
+        <div class="card" data-respuesta="Badu" data-audio="audio/Pato.ogg" onclick="seleccionarTarjeta(this)">
+            <img src="imagenes/images (2).jpg" alt="Badu">
+            <h3>Badu</h3>
+        </div>
+    </div>
+
+    <div class="botones">
+        <!-- Comprueba 'Badu' y finaliza la unidad -->
+        <button class="comprobar" onclick="comprobarRespuesta('leccion5', 'Badu', 'fin-unidad')">COMPROBAR</button>
+        <button class="saltar" onclick="cambiarLeccion('leccion5', 'fin-unidad')">SALTAR</button>
+    </div>
+    <p id="resultado-leccion5" class="resultado"></p>
+</section>
+
+
+<!-- SECCIÓN DE FINALIZACIÓN DE UNIDAD -->
+<section id="fin-unidad" style="background-color:#cd9efa; color:white; display:none;">
+    <h3>Unidad completada</h3>
+    <h1>¡Felicidades!</h1>
+    <p>Has terminado todas las lecciones de esta unidad.</p>
+
+    <div class="botones">
+        <button class="comprobar" onclick="location.reload()">REPETIR UNIDAD</button>
+    </div>
+</section>
+
+
+<!-- Elemento para reproducción dinámica de audio -->
+<audio id="reproductorAudio"></audio>
+
+<script>
+// Reproductor único de audio
+const reproductor = document.getElementById("reproductorAudio");
+
+// Seleccionar tarjeta y reproducir su sonido
+function seleccionarTarjeta(cardElement) {
+    const leccionActual = cardElement.closest("section");
+    leccionActual.querySelectorAll(".card").forEach(card => {
+        card.classList.remove("seleccionada");
+    });
+
+    cardElement.classList.add("seleccionada");
+
+    const rutaAudio = cardElement.getAttribute("data-audio");
+    if (rutaAudio) {
+        reproductor.src = rutaAudio;
+        reproductor.currentTime = 0;
+        reproductor.play().catch(err => console.log("Error al reproducir audio:", err));
+    }
+}
+
+// Función para cambiar de lección
+function cambiarLeccion(idActual, idSiguiente) {
+    document.getElementById(idActual).style.display = "none";
+    if (idSiguiente) {
+        document.getElementById(idSiguiente).style.display = "block";
+    }
+}
+
+// Función para comprobar la respuesta
+function comprobarRespuesta(idLeccionActual, respuestaCorrecta, idSiguienteLeccion) {
+    const leccion = document.getElementById(idLeccionActual);
+    const tarjetaSeleccionada = leccion.querySelector(".card.seleccionada");
+    const pResultado = document.getElementById("resultado-" + idLeccionActual);
+
+    if (!tarjetaSeleccionada) {
+        pResultado.style.color = "#ffdd57";
+        pResultado.textContent = "Por favor, selecciona una opción.";
+        return;
+    }
+
+    const respuestaElegida = tarjetaSeleccionada.getAttribute("data-respuesta");
+
+    if (respuestaElegida === respuestaCorrecta) {
+        pResultado.style.color = "#a3ffaa";
+        pResultado.textContent = "¡Correcto! Excelente trabajo.";
+        
+        setTimeout(() => {
+            pResultado.textContent = "";
+            cambiarLeccion(idLeccionActual, idSiguienteLeccion);
+        }, 1200);
+    } else {
+        pResultado.style.color = "#ff8888";
+        pResultado.textContent = "Incorrecto. Inténtalo de nuevo.";
+    }
+}
+function mostrarFinal() {
+
+    fetch("actualizar_progreso.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            experienciaGanada: puntaje
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+
+        if(data.success){
+
+            alert(
+                "🎉 ¡Felicidades!\n\n" +
+                "Ganaste " + puntaje + " puntos.\n" +
+                "Tu progreso ha sido actualizado."
+            );
+
+            window.location.href = "index.html";
+
+        }else{
+
+            alert("Error: " + data.mensaje);
+
+        }
+
+    })
+    .catch(error => {
+
+        console.error(error);
+        alert("Error de conexión con el servidor.");
+
+    });
+
+}
+
+</script>
+
+<script>
+
+
+// VARIABLES GLOBALES
+let puntaje = 0;
+let respuestaSeleccionada = "";
+
+
+// ACTUALIZAR PUNTAJE EN PANTALLA
+function actualizarPuntaje(){
+    document.getElementById("puntaje").textContent = puntaje;
+}
+
+
+// SELECCIONAR RESPUESTA
+function seleccionarRespuesta(respuesta, elemento){
+
+
+    respuestaSeleccionada = respuesta;
+
+
+    // Quitar selección anterior
+    const tarjetas = document.querySelectorAll(".card");
+    tarjetas.forEach(card => card.classList.remove("seleccionada"));
+
+
+    // Marcar tarjeta seleccionada
+    elemento.classList.add("seleccionada");
+}
+
+
+// VERIFICAR RESPUESTA
+function comprobar(correcta, siguienteFuncion){
+
+
+    if(respuestaSeleccionada === ""){
+        alert("Selecciona una respuesta primero");
+        return;
+    }
+
+
+    if(respuestaSeleccionada === correcta){
+
+
+        puntaje += 10;
+        actualizarPuntaje();
+
+
+        alert("✅ ¡Correcto! +10 puntos");
+
+
+    }else{
+
+
+        alert("❌ Incorrecto");
+
+
+    }
+
+
+    respuestaSeleccionada = "";
+
+
+    // avanzar a la siguiente lección
+    window[siguienteFuncion]();
+}
+
+
+// AUDIOS
+function reproducirAudio1(){
+    const audio = document.getElementById("audio/Gato.ogg");
+    audio.currentTime = 0;
+    audio.play();
+}
+
+
+function reproducirAudio2(){
+    const audio = document.getElementById("audio/Burro.ogg");
+    audio.currentTime = 0;
+    audio.play();
+}
+
+
+function reproducirAudio3(){
+    const audio = document.getElementById("audio/Pato.ogg");
+    audio.currentTime = 0;
+    audio.play();
+}
+
+
+function reproducirAudio4(){
+    const audio = document.getElementById("audio/Perro.ogg");
+    audio.currentTime = 0;
+    audio.play();
+}
+
+
+function reproducirAudio4(){
+    const audio = document.getElementById("audio/Toro.ogg");
+    audio.currentTime = 0;
+    audio.play();
+}
+
+
+// NAVEGACIÓN
+function mostrarleccion2(){
+    document.getElementById("leccion1").style.display = "none";
+    document.getElementById("leccion2").style.display = "block";
+}
+
+
+function mostrarleccion3(){
+    document.getElementById("leccion2").style.display = "none";
+    document.getElementById("leccion3").style.display = "block";
+}
+
+
+function mostrarleccion4(){
+    document.getElementById("leccion3").style.display = "none";
+    document.getElementById("leccion4").style.display = "block";
+}
+
+
+function mostrarleccion5(){
+    document.getElementById("leccion4").style.display = "none";
+    document.getElementById("leccion5").style.display = "block";
+}
+
+
+// PANTALLA FINAL
+function mostrarFinal(){
+
+
+   fetch("actualizar_progreso.php", {
+
+
+        method: "POST",
+
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+
+        body: JSON.stringify({
+            experienciaGanada: puntaje
+        })
+
+
+    })
+    .then(response => response.json())
+    .then(data => {
+
+
+        if(data.success){
+
+
+            alert(
+                "🎉 ¡Felicidades!\n\n" +
+                "Ganaste " + puntaje +
+                " puntos de experiencia."
+            );
+
+
+            window.location.href = "index.html";
+
+
+        }else{
+
+
+            alert(data.mensaje);
+
+
+        }
+
+
+    })
+    .catch(error => {
+
+
+        console.error(error);
+        alert("Error al actualizar el progreso");
+
+
+    });
+
+
+
+
+
+
+}
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html, body {
+            width: 100%;
+            min-height: 100vh;
+            background: #131f24;
+            color: #f1f7f9;
+            font-family: 'Nunito', Arial, sans-serif;
+        }
+
+        .topbar {
+            width: 100%;
+            padding: 14px 28px;
+            border-bottom: 1px solid #2b383f;
+            display: flex;
+            align-items: center;
+        }
+
+        .boton-inicio {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 12px;
+            border: 2px solid #37464f;
+            border-bottom-width: 4px;
+            background: #18262d;
+            color: #f1f7f9;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .pantalla {
+            width: 100%;
+            min-height: calc(100vh - 63px);
+            padding: 28px;
+            display: flex;
+            justify-content: center;
+        }
+
+        #contenedor { width: 100%; max-width: 1040px; }
+
+        .banner-avatar {
+            width: 100%;
+            height: 250px;
+            background: #a8a8a8;
+            border-radius: 18px;
+            overflow: hidden;
+            margin-bottom: 22px;
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .info-usuario {
+            padding-bottom: 20px;
+            border-bottom: 2px solid #37464f;
+            margin-bottom: 22px;
+        }
+
+        .nombre-usuario { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 900; text-transform: uppercase; }
+        .handle-usuario { color: #7f949e; font-weight: 700; display: block; margin-top: 2px; }
+        .fecha-union { color: #e2ecf0; font-weight: 700; margin-top: 8px; }
+
+        .seccion-estadisticas h2 { font-size: 1.5rem; font-weight: 900; margin-bottom: 14px; }
+
+        .grid-estadisticas {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .tarjeta-stat {
+            border: 2px solid #37464f;
+            border-radius: 16px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            min-height: 90px;
+        }
+
+        .valor-stat { font-size: 1.25rem; font-weight: 900; display: block; }
+        .etiqueta-stat { color: #7f949e; font-weight: 700; font-size: 0.95rem; }
+
+        @media (max-width: 700px) {
+            .pantalla { padding: 18px 14px 32px; }
+            .grid-estadisticas { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <a class="boton-inicio" href="index2.html">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 3 2.5 11h2.7v9h5.1v-5.8h3.4V20h5.1v-9h2.7L12 3z"/></svg>
+            <span>Volver al inicio</span>
+        </a>
+    </header>
+
+    <main class="pantalla">
+        <div id="contenedor"></div>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const c = document.getElementById("contenedor");
+            if (!c || c.children.length > 0) return;
+
+            c.innerHTML = `
+                <div class="banner-avatar">
+                    <img class="avatar-img" src="imagenes/avatar.png" alt="Avatar">
+                </div>
+
+                <div class="info-usuario">
+                    <h1 class="nombre-usuario">LUIS MARIO NUÑEZ ROMERO</h1>
+                    <span class="handle-usuario">LUISMARION795828</span>
+                    <p class="fecha-union">Se unió en septiembre de 2026</p>
+                </div>
+
+                <section class="seccion-estadisticas">
+                    <h2>Estadísticas</h2>
+                    <div class="grid-estadisticas">
+                        <div class="tarjeta-stat">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="#52656d"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67z"/></svg>
+                            <div><span class="valor-stat">0</span><span class="etiqueta-stat">días de racha</span></div>
+                        </div>
+                        <div class="tarjeta-stat">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="#52656d"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+                            <div><span class="valor-stat">0</span><span class="etiqueta-stat">EXP totales</span></div>
+                        </div>
+                        <div class="tarjeta-stat">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="#52656d"><path d="M12 2 4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm0 6c1.66 0 3 1.34 3 3 0 1.09-.59 2.04-1.46 2.57l.96 3.43h-5l.96-3.43A2.996 2.996 0 0 1 9 11c0-1.66 1.34-3 3-3z"/></svg>
+                            <div><span class="valor-stat">Ninguna</span><span class="etiqueta-stat">división actual</span></div>
+                        </div>
+                        <div class="tarjeta-stat">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="#52656d"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V22l4-2 4 2v-7.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7zm0 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>
+                            <div><span class="valor-stat">0</span><span class="etiqueta-stat">veces en el top 3</span></div>
+                        </div>
+                    </div>
+                </section>
+            `;
+        });
+    </script>
+</body>
+</html>

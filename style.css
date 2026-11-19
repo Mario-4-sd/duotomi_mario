@@ -1,0 +1,281 @@
+ .boton-inicio {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            padding: 10px 16px;
+            border-radius: 10px;
+            background: #0876bd;
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.2s ease;
+        }
+
+
+        .boton-inicio:hover {
+            background: #065d96;
+        }
+
+
+        .boton-inicio:focus-visible {
+            outline: 3px solid #263445;
+            outline-offset: 3px;
+        }
+
+
+body {
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        justify-content: space-between;
+        color: #4b4b4b;
+    }
+
+    /* Barra Superior */
+    .barra-superior {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 30px;
+        max-width: 800px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .cerrar {
+        font-size: 24px;
+        color: #afafaf;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .progreso-fondo {
+        flex-grow: 1;
+        background-color: #e5e5e5;
+        height: 16px;
+        border-radius: 8px;
+        margin: 0 20px;
+        overflow: hidden;
+    }
+
+    .progreso-verde {
+        width: 33%;
+        height: 100%;
+        background-color: #58cc02;
+        border-radius: 8px;
+        transition: width 0.3s ease;
+    }
+
+    .vidas {
+        font-size: 18px;
+        font-weight: bold;
+        color: #ff4b4b;
+    }
+
+    /* Contenido Principal */
+    .contenido {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .contenido h3 {
+        color: #777777;
+        font-size: 14px;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+    }
+
+    .contenido h1 {
+        color: #3c3c3c;
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    /* Opciones y Tarjetas */
+    .contenedor-opciones {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    .tarjeta {
+        background-color: #ffffff;
+        border: 2px solid #e5e5e5;
+        border-radius: 16px;
+        padding: 15px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        box-shadow: 0 4px 0 #e5e5e5;
+    }
+
+    .tarjeta:hover {
+        background-color: #f7f7f7;
+    }
+
+    .tarjeta.seleccionada {
+        background-color: #ddf4ff;
+        border-color: #84d8ff;
+        box-shadow: 0 4px 0 #84d8ff;
+    }
+
+    .tarjeta img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 15px;
+    }
+
+    .pie-tarjeta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 5px;
+    }
+
+    .nombre {
+        font-size: 18px;
+        font-weight: bold;
+        color: #4b4b4b;
+    }
+
+    .numero {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 24px;
+        height: 24px;
+        border: 2px solid #e5e5e5;
+        border-radius: 50%;
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #afafaf;
+    }
+
+    .tarjeta.seleccionada .numero {
+        border-color: #1cb0f6;
+        color: #1cb0f6;
+    }
+
+    /* Botón de Audio Integrado en Tarjeta */
+    .btn-audio {
+        background-color: #1cb0f6;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin-bottom: 8px;
+        box-shadow: 0 3px 0 #0d8de1;
+        transition: all 0.1s;
+    }
+
+    .btn-audio:active {
+        transform: translateY(3px);
+        box-shadow: 0 0 0 #0d8de1;
+    }
+
+    /* Feedback Inferior (Correcto / Incorrecto) */
+    .feedback-panel {
+        position: fixed;
+        bottom: 80px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-weight: bold;
+        font-size: 20px;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+        z-index: 10;
+    }
+
+    .feedback-panel.correcto {
+        background-color: #d7ffb8;
+        color: #58a700;
+        transform: translateY(0);
+    }
+
+    .feedback-panel.incorrecto {
+        background-color: #ffdfe0;
+        color: #ea2b2b;
+        transform: translateY(0);
+    }
+
+    /* Barra Inferior */
+    .barra-inferior {
+        border-top: 2px solid #e5e5e5;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        max-width: 800px;
+        margin: 0 auto;
+        width: 100%;
+        background: #ffffff;
+        z-index: 20;
+    }
+
+    .boton-saltar, .boton-comprobar {
+        padding: 12px 28px;
+        border-radius: 16px;
+        font-weight: bold;
+        font-size: 15px;
+        cursor: pointer;
+        text-align: center;
+        letter-spacing: 1px;
+    }
+
+    .boton-saltar {
+        background-color: #ffffff;
+        color: #afafaf;
+        border: 2px solid #e5e5e5;
+        box-shadow: 0 4px 0 #e5e5e5;
+    }
+
+    .boton-saltar:active {
+        transform: translateY(4px);
+        box-shadow: 0 0 0 #e5e5e5;
+    }
+
+    .boton-comprobar {
+        background-color: #e5e5e5;
+        color: #afafaf;
+        border: none;
+        box-shadow: 0 4px 0 #cecece;
+        cursor: not-allowed;
+        transition: background-color 0.2s, color 0.2s;
+    }
+
+    .boton-comprobar.activo {
+        background-color: #58cc02;
+        color: #ffffff;
+        box-shadow: 0 4px 0 #46a302;
+        cursor: pointer;
+    }
+
+    .boton-comprobar.activo:active {
+        transform: translateY(4px);
+        box-shadow: 0 0 0 #46a302;
+    }
+    

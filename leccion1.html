@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Duolingo Otomí</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="barra-superior">
+        <p class="cerrar" onclick="location.reload()">✕</p>
+        <div class="progreso-fondo">
+            <div class="progreso-verde" id="barraProgreso"></div>
+        </div>
+        <p class="vidas" id="contadorVidas">❤️ 5</p>
+    </div>
+
+    <div class="contenido">
+        <h3>PALABRA NUEVA</h3>
+        <h1>¿Cuál de estos es "gato"?</h1>
+
+        <div class="contenedor-opciones">
+            
+            <div class="tarjeta" onclick="seleccionarTarjeta(0, 'mixtu')">
+                <div class="numero">1</div>
+                <img src="imagenes/images (1).jpg" alt="Gato">
+                <button class="btn-audio" onclick="event.stopPropagation(); reproducirAudio('audio/Gato.ogg');" title="Escuchar audio">🔊</button>
+                <div class="pie-tarjeta">
+                    <p class="nombre">mixtu</p>
+                </div>
+            </div>
+            
+            <div class="tarjeta" onclick="seleccionarTarjeta(1, 'juiju')">
+                <div class="numero">2</div>
+                <img src="imagenes/images.jpg" alt="Burro">
+                <button class="btn-audio" onclick="event.stopPropagation(); reproducirAudio('audio/Burro.ogg');" title="Escuchar audio">🔊</button>
+                <div class="pie-tarjeta">
+                    <p class="nombre">juiju</p>
+                </div>
+            </div>
+
+            <div class="tarjeta" onclick="seleccionarTarjeta(2, 'badu')">
+                <div class="numero">3</div>
+                <img src="imagenes/images (2).jpg" alt="Pato">
+                <button class="btn-audio" onclick="event.stopPropagation(); reproducirAudio('audio/Pato.ogg');" title="Escuchar audio">🔊</button>
+                <div class="pie-tarjeta">
+                    <p class="nombre">badu</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="feedbackPanel" class="feedback-panel">
+        <span id="mensajeFeedback">¡Buen trabajo!</span>
+        <div class="boton-comprobar activo" id="btnContinuar" onclick="siguientePregunta()" style="padding: 10px 20px;">CONTINUAR</div>
+    </div>
+
+    <div class="barra-inferior">
+        <div class="boton-saltar" onclick="saltarPregunta()">SALTAR</div>
+        <div class="boton-comprobar" id="btnComprobar" onclick="comprobarRespuesta()">COMPROBAR</div>
+    </div>
+
+    <script>
+        let tarjetaSeleccionada = null;
+        let palabraSeleccionada = null;
+        let vidas = 5;
+        const respuestaCorrecta = 'mixtu';
+        let audioActual = null; 
+
+        function seleccionarTarjeta(indice, palabra) {
+            const tarjetas = document.querySelectorAll('.tarjeta');
+            tarjetas.forEach((t, i) => {
+                if (i === indice) {
+                    t.classList.add('seleccionada');
+                } else {
+                    t.classList.remove('seleccionada');
+                }
+            });
+
+            tarjetaSeleccionada = indice;
+            palabraSeleccionada = palabra;
+
+            const btnComprobar = document.getElementById('btnComprobar');
+            btnComprobar.classList.add('activo');
+        }
+
+        function reproducirAudio(rutaAudio) {
+            if (audioActual) {
+                audioActual.pause();
+                audioActual.currentTime = 0;
+            }
+
+            audioActual = new Audio(rutaAudio);
+            audioActual.play().catch(error => {
+                console.error("Error al reproducir el archivo de audio:", error);
+                alert("No se pudo cargar el audio. Verifica que la ruta del archivo sea correcta.");
+            });
+        }
+
+        function comprobarRespuesta() {
+            if (tarjetaSeleccionada === null) return;
+
+            const feedbackPanel = document.getElementById('feedbackPanel');
+            const mensajeFeedback = document.getElementById('mensajeFeedback');
+            const btnComprobar = document.getElementById('btnComprobar');
+
+            btnComprobar.style.pointerEvents = 'none';
+
+            if (palabraSeleccionada === respuestaCorrecta) {
+                feedbackPanel.className = 'feedback-panel correcto';
+                mensajeFeedback.textContent = '¡Correcto! 🎉';
+                document.getElementById('barraProgreso').style.width = '100%';
+            } else {
+                feedbackPanel.className = 'feedback-panel incorrecto';
+                mensajeFeedback.textContent = 'Respuesta incorrecta. La respuesta era "mixtu".';
+                vidas--;
+                document.getElementById('contadorVidas').textContent = `❤️ ${vidas}`;
+            }
+        }
+
+        function siguientePregunta() {
+            const feedbackPanel = document.getElementById('feedbackPanel');
+            feedbackPanel.className = 'feedback-panel';
+            
+            tarjetaSeleccionada = null;
+            palabraSeleccionada = null;
+            document.querySelectorAll('.tarjeta').forEach(t => t.classList.remove('seleccionada'));
+            const btnComprobar = document.getElementById('btnComprobar');
+            btnComprobar.classList.remove('activo');
+            btnComprobar.style.pointerEvents = 'auto';
+        }
+
+        function saltarPregunta() {
+            alert('Pregunta saltada. ¡Inténtalo de nuevo!');
+            siguientePregunta();
+        }
+    
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
